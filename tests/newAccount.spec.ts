@@ -10,12 +10,12 @@ test.describe('new account', () => {
         await page.goto('/');
         const welcomePage = new WelcomePage(page);
         await welcomePage.performLogin(process.env.USER!,process.env.PASSWORD!)
-        await page.waitForURL('**\/accounts');
+        await page.waitForURL('**/accounts');
         await expect(page).toHaveURL('https://uibank.uipath.com/accounts');
     });
     test('apply new account', async ({ page }) => {
         const accountPage = new AccountPage(page);
-        accountPage.clickApplyForNewAccountButton();
+        await accountPage.clickApplyForNewAccountButton();
         const accountApplyPage = new AccountApplyPage(page);
         await accountApplyPage.applyForANewAccount(accountDetails.accountDetails.accountName,accountDetails.accountDetails.AcountType);
         const accountCreateResultsPage = new AccountCreateResultsPage(page);
