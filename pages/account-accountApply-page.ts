@@ -1,4 +1,4 @@
-import { type Locator, type Page } from "@playwright/test";
+import { type Page } from "@playwright/test";
 import { LocatorHealer } from "../utils/self-healer";
 
 export class AccountApplyPage {
@@ -28,6 +28,7 @@ export class AccountApplyPage {
         await accountNameLoc.fill(accountName);
         await accountTypeLoc.selectOption(accountType);
         await applyButtonLoc.click();
+        await this.page.waitForNavigation();
     }
 
 }

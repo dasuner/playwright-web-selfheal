@@ -1,9 +1,9 @@
-import { type Locator, type Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
 import { LocatorHealer } from '../utils/self-healer';
 
 export class WelcomePage {
     readonly page: Page;
-    private healer: LocatorHealer;
+    private readonly healer: LocatorHealer;
 
     constructor(page: Page) {
         this.page = page;
